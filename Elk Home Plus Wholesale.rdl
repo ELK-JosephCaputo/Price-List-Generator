@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <InitialPageName>Price List</InitialPageName>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=elksql2;Initial Catalog=ELK_DATA</ConnectString>
+        <Prompt>Enter a user name and password to access the data source:</Prompt>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>bd02406b-4edb-45c6-91ac-b5b26e884502</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT     TRIM(BI_Products.[Item Number]) AS ItemNumber, PriceDefault.Price AS DefaultPrice, PriceElBronze.Price AS Bronze, PriceElkHomePLU.Price AS ElkHomePLU, 
+                      PriceElkHomeLG.Price AS Lighting, CASE WHEN LEFT(BI_Products.ITMCLSCD, 2) &lt;&gt; 'A-' THEN NULL ELSE PriceIMAP.Price END AS IMAP, BI_Products.UPC, 
+                      BI_Products.IsKit, UPPER(BI_Products.[Item Category]) AS Category, UPPER(BI_Products.[Item SubCategory]) AS SubCategory, 
+                      CASE WHEN BI_Products.[Truck Only] = 1 THEN 'T' ELSE '' END AS T, BI_Products.ITMCLSCD, BI_Products.BrandCollection, LEFT(BI_Products.ITMCLSCD, 2) 
+                      AS Expr1, PriceChange.NewDefault as newPlus, PriceChange.NewLighting, PriceChange.NewBRNZ
+FROM         BI_Products LEFT OUTER JOIN
+                          (SELECT     Item, NewDefault, NewLighting, NewBRNZ
+                            FROM          _tblPriceChange622022) AS PriceChange ON BI_Products.[Item Number] = PriceChange.Item LEFT OUTER JOIN
+                          (SELECT     Item_Number, Price_Level, Price
+                            FROM          ELK.dbo.elk_PriceListView AS elk_PriceListView_4
+                            WHERE      (Price_Level = 'DEFAULT')) AS PriceDefault ON BI_Products.[Item Number] = PriceDefault.Item_Number LEFT OUTER JOIN
+                          (SELECT     Item_Number, Price_Level, Price
+                            FROM          ELK.dbo.elk_PriceListView AS elk_PriceListView_1
+                            WHERE      (Price_Level = 'IMAP')) AS PriceIMAP ON BI_Products.[Item Number] = PriceIMAP.Item_Number LEFT OUTER JOIN
+                          (SELECT     Item_Number, Price_Level, Price
+                            FROM          ELK.dbo.elk_PriceListView AS elk_PriceListView_2
+                            WHERE      (Price_Level = 'EL-INSDBRZ')) AS PriceElBronze ON BI_Products.[Item Number] = PriceElBronze.Item_Number LEFT OUTER JOIN
+                          (SELECT     Item_Number, Price_Level, Price
+                            FROM          ELK.dbo.elk_PriceListView AS elk_PriceListView_3
+                            WHERE      (Price_Level = 'ELKHOMELG')) AS PriceElkHomeLG ON BI_Products.[Item Number] = PriceElkHomeLG.Item_Number LEFT OUTER JOIN
+                          (SELECT     Item_Number, Price_Level, Price
+                            FROM          ELK.dbo.elk_PriceListView
+                            WHERE      (Price_Level = 'ELKHOMEPLU')) AS PriceElkHomePLU ON BI_Products.[Item Number] = PriceElkHomePLU.Item_Number
+WHERE     (LEFT(BI_Products.ITMCLSCD, 2) IN ('A-', 'N-', 'C-', 'R-')) AND (BI_Products.BrandCollection NOT IN ('Westmore', 'San Miguel')) AND (BI_Products.UPC IS NOT NULL) 
+                      AND (BI_Products.UPC &lt;&gt; '') AND (NOT (UPPER(BI_Products.[Item Category]) LIKE 'Non%')) and BI_Products.[Item SubCategory] &lt;&gt;'UNCATEGORIZED'
+ORDER BY BI_Products.[Item Number]
+
+/*PricelistNames 
+Elk Home Plus Wholesale
+Elk Home Lighting Bronze
+Elk Home LIghting Wholesale
+
+Elk Home Plus Wholesale - IMAP
+Elk Home Lighting Bronze - IMAP
+Elk Home LIghting Wholesale - IMAP
+
+Elk Home Plus Wholesale - New Intro Supplement 
+Elk Home Lighting Bronze - New Intro Supplement 
+Elk Home LIghting Wholesale - New Intro Supplement 
+
+Set column A and G to Text before pasting
+
+check for NULL and $0 pricing
+Remove Duplicate UPC code items
+
+
+
+*/</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ItemNumber">
+          <DataField>ItemNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DefaultPrice">
+          <DataField>DefaultPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Bronze">
+          <DataField>Bronze</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ElkHomePLU">
+          <DataField>ElkHomePLU</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Lighting">
+          <DataField>Lighting</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="IMAP">
+          <DataField>IMAP</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="UPC">
+          <DataField>UPC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IsKit">
+          <DataField>IsKit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Category">
+          <DataField>Category</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SubCategory">
+          <DataField>SubCategory</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="T">
+          <DataField>T</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ITMCLSCD">
+          <DataField>ITMCLSCD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BrandCollection">
+          <DataField>BrandCollection</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Expr1">
+          <DataField>Expr1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="newPlus">
+          <DataField>newPlus</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="NewLighting">
+          <DataField>NewLighting</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="NewBRNZ">
+          <DataField>NewBRNZ</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.09722in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.09028in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.8068in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.21528in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.375in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.32292in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.86458in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.32292in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.30209in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Item Number</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Wholesale Price USD</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#fff2cc</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox15">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>IMAP</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>UPC</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Is Kit</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox9">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Category</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Sub Category</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>T</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.1875in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ItemNumber">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ItemNumber.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ItemNumber</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ElkHomePLU">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ElkHomePLU.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ElkHomePLU</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="IMAP">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!IMAP.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>IMAP</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="UPC">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!UPC.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>UPC</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="IsKit">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!IsKit.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>IsKit</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Category">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Category.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Category</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="SubCategory">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SubCategory.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SubCategory</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="T">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!T.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>T</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>1pt</PaddingLeft>
+                            <PaddingRight>1pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+            <DataSetName>DataSet1</DataSetName>
+            <PageName>Price List</PageName>
+            <Top>0.24304in</Top>
+            <Height>0.48959in</Height>
+            <Width>8.095in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Subreport Name="Subreport4">
+            <ReportName>/Price List Generator/PriceListCoverPage</ReportName>
+            <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+            <Top>0.05555in</Top>
+            <Height>0.0625in</Height>
+            <Width>8.095in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="Subreport5">
+            <ReportName>/Price List generator/PriceListterms</ReportName>
+            <Top>0.79735in</Top>
+            <Height>0.10417in</Height>
+            <Width>8.095in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <Height>0.90153in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>8.095in</Width>
+      <Page>
+        <PageHeader>
+          <Height>0.31945in</Height>
+          <ReportItems>
+            <Textbox Name="Textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>12 Willow Lane, Nesquhoning, PA, 18240</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>www.elkhome.com</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Height>0.29167in</Height>
+              <Width>2.5625in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>1pt</PaddingLeft>
+                <PaddingRight>1pt</PaddingRight>
+                <PaddingTop>1pt</PaddingTop>
+                <PaddingBottom>1pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>P:800-613-3261 F:866-613-3264</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>sales@elkhome.com</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.01389in</Top>
+              <Left>5.04291in</Left>
+              <Height>0.30556in</Height>
+              <Width>3.05208in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>1pt</PaddingLeft>
+                <PaddingRight>1pt</PaddingRight>
+                <PaddingTop>1pt</PaddingTop>
+                <PaddingBottom>1pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>0.29167in</Height>
+          <ReportItems>
+            <Textbox Name="Textbox17">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber-1</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox17</rd:DefaultName>
+              <Top>0.05556in</Top>
+              <Left>1.375in</Left>
+              <Height>0.23611in</Height>
+              <Width>5.53597in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>T - Truck Only</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>0.02778in</Top>
+              <Left>6.93875in</Left>
+              <Height>0.22222in</Height>
+              <Width>1.15625in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <LeftMargin>0.25in</LeftMargin>
+        <TopMargin>0.15in</TopMargin>
+        <BottomMargin>0.15in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportServerUrl>http://elksql2/ReportServer</rd:ReportServerUrl>
+  <rd:ReportID>3d463180-d7d6-4d83-a72b-50078988a7a9</rd:ReportID>
+</Report>

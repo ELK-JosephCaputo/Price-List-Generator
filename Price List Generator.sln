@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Price List Generator", "Price List Generator.rptproj", "{67090D3B-E91D-4CCA-AADC-34571B2758E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.Debug|Default.ActiveCfg = Debug
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.Debug|Default.Build.0 = Debug
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.Debug|Default.Deploy.0 = Debug
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.DebugLocal|Default.Build.0 = DebugLocal
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.Release|Default.ActiveCfg = Release
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.Release|Default.Build.0 = Release
+		{67090D3B-E91D-4CCA-AADC-34571B2758E4}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E063CFE-BE0D-4B44-A73F-812FC2D2A147}
+	EndGlobalSection
+EndGlobal

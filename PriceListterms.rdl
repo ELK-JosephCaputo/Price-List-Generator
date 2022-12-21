@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <InitialPageName>Terms</InitialPageName>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Rectangle Name="Rectangle1">
+            <ReportItems>
+              <Textbox Name="Textbox1">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Terms and Conditions</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>LIMITED WARRANTY: </Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>All products sold by Elk Home are warranted to be free from defects in materials and workmanship for a period of : one (1) year and five (5) years for the LED Light Engines and electrical components from the date of invoice. Our warranty covers only replacement or repair at our facility or authorized repair facility of the defective part(s), to the original purchaser and excludes any responsibility for labor, freight expense or for consequential damages incurred by the purchaser or others, for servicing such claim during the warrant period,  Elk Home reserves the right to issue credit, repair or replace defective merchandise, at our opinion.  Elk Home further reserves the right to refuse to honor the warranty for any product(s) altered, improperly installed, or installed in an application for which it was not intended.  All claims must include sales receipt showing the item and date of purchase.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>NEW DEALERS</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>: Submit three (3) trade references, complete with address and telephone numbers, and bank information.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>AUTHORIZED DEALERS WITH CREDIT TERMS:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> Will be subject to the approval and periodic review of ELK Home's credit department.  Past due invoices will affect future shipments.  1% per month finance charge, minimum $20.00 per month.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>AUTHORIZED DEALERS:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> An annual volume of $1500 per year is required to maintain a valid account.  New credit and an opening order must be submitted to re-activate account if volume is not maintained.  An annual sales volume minimum threshold may be required to maintain distributor net pricing.  ELK Home may close a dealer for selling or distributing products to an unauthorized dealer.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>FREIGHT POLICY</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>: Shipments are FOB, Rabun Gap, GA.  Freight will be billed.  For FFA orders freight may be deducted only if paid within terms</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>DROP SHIP:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> There is a $5.00 handling charge for all drop shipments.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>MINIMIUM CHARGE: </Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>There is a $10.00 handling charge for all orders under $100.00</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>SHIPMENTS:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> We will not be responsible for any damages to oversized items that are not shipped by LTL.  Any additional charges incurred such as, but not limited to residential delivery, lift gate, inside delivery, appointment notification, address correction, return shipping costs, restricted access and holding fees will be billed as incurred and are not part of the FFA program.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>HOT RUSH FEE</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>: There is a $5.00 handling charge per item for expedited shipping requests</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>REROUTING FEE</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>: There is a $15.00 per package re-routing fee.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>REBOX FEE:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> For drop shipment items there will be a $5.00 re-box fee applied.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>CLAIMS: </Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>Our merchandise is properly packed for shipment; therefore, our responsibility ceases on delivery of merchandise to the carrier. All claims for damages, breakage, or shortages occurring during transit must be reported by the consignee with the delivery carrier. Upon receipt of merchandise for a concealed damage claim merchandise must be checked 6 days within receipt of merchandise or the damages become the responsibility of the consignee. If merchandise is received damaged and a claim is filed in the allotted time.  Item must be returned in original carton or claim will automatically be denied.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>RETURNS: </Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>No merchandise may be returned without prior written Return Goods Authorization (RGA).  Requests For returns of defective merchandise must be submitted in writing to sales representative or office.  All efforts will be made to correct the problem in  the field. If problem cannot be resolved, an RGA will be issued.  Upon receipt of RGA, please pack merchandise in original factory carton for shipment to Elk Home, 143 Mahanoy Avenue, Tamaqua, PA 18252 freight prepaid.  Upon inspection of merchandise, ELK Home will repair, replace, or issue credit. Unauthorized returns or collect returns will be refused.   Returns will be authorized for defective merchandise under warranty period of one (1) year only.  Return requests for non-defective merchandise must be made within 90 days from the invoice date. Any merchandise returned for credit is subject to a 25% restocking fee. </Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>CHANGES OR CANCELLATIONS:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> Any change or cancellation of a standard order must be received in writing 5 days prior to shipment.  Custom orders may not be cancelled.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>WEB SITE:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> All sites must register with ELK Home prior to using any ELK Home images or other propriety information on the site.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>MAP:</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>  All ELK Home products are subject to a Minimum Advertised Price, unless given written authorization.  Discontinued products are exempt.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Prices and Terms may change without notice.</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>ELK Home</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> a division of Elk Home</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>12 Willow Lane</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Nesquehoning, PA 18240</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Phone: 800-613-3261</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Fax: 866-613-3264</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Email: sales@elkhome.com</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Cambria</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox1</rd:DefaultName>
+                <Height>8.55333in</Height>
+                <Width>5.97in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <PageBreak>
+              <BreakLocation>Start</BreakLocation>
+            </PageBreak>
+            <PageName>Terms</PageName>
+            <KeepTogether>true</KeepTogether>
+            <Height>8.55333in</Height>
+            <Width>5.97in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+        </ReportItems>
+        <Height>8.55333in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>5.97in</Width>
+      <Page>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>c609a348-9758-44cf-99f7-330157dadbb7</rd:ReportID>
+</Report>
